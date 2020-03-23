@@ -11,29 +11,29 @@ namespace TechJobsOO
 
         public CoreCompetency()
         {
-            Id = nextId;
+            id = nextId;
             nextId++;
         }
 
-        public CoreCompetency(string value) : this()
+        public CoreCompetency(string v) : this()
         {
-            Value = value;
+            value = v;
         }
 
         public override bool Equals(object obj)
         {
             return obj is CoreCompetency competency &&
-                   Id == competency.Id;
+                   id == competency.id;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id);
+            return HashCode.Combine(id);
         }
 
         public override string ToString()
         {
-            return Value;
+            return value;
         }
     }
     }
