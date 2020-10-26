@@ -24,15 +24,15 @@ namespace TechJobsOO
             return Value; //is this seriously right?
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id, Value);
-        }
-
         public override bool Equals(object obj)
         {
             return obj is PositionType type &&
                    Id == type.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
         }
     }
 }
