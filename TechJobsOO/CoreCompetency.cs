@@ -3,12 +3,12 @@ namespace TechJobsOO
 {
     public class CoreCompetency
     {
-        private int id;
+        public int Id {get; set; }  
         private static int nextId = 1;
-        private string value;
+        public string Value {get; set; } 
 
         // TODO: Change the fields to auto-implemented properties.
-
+        //Okay, if I understand correctly, the private fields are still there, but we see the public properties that are being autoimplemented.
         public CoreCompetency()
         {
             id = nextId;
