@@ -28,7 +28,17 @@ namespace TechJobTests
             Assert.IsTrue(constructorTest.EmployerName.Value == "ACME");
             Assert.IsTrue(constructorTest.EmployerLocation.Value == "Desert");
             Assert.IsTrue(constructorTest.JobCoreCompetency.Value == "Persistence");
-            Assert.IsTrue(constructorTest.JobCoreCompetency.Value == "Quality Control");
+            Assert.IsTrue(constructorTest.JobType.Value == "Quality Control");
         }
+
+        [TestMethod]
+        public void TestJobsForEquality()
+        {
+            Job testJob1 = new Job("Value", new Employer("test"), new Location("test"), new PositionType("test"), new CoreCompetency("test"));
+            Job testJob2 = new Job("Value", new Employer("test"), new Location("test"), new PositionType("test"), new CoreCompetency("test"));
+            Assert.AreNotEqual(testJob1, testJob2);
+        }
+
+
     }
 }
