@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq.Expressions;
+
 namespace TechJobsOO
 {
     public class Job
@@ -40,6 +42,25 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Id);
         }
+
+        public override string ToString()
+        {
+            if (Name == null)
+            {
+                return "OOPS! This job does not seem to exist.";
+            }
+            
+            string filler = "Data not available";
+            
+            if (Name == "") { Name = filler;  }
+            if (EmployerName.Value == "") { EmployerName.Value = filler; }
+            if (EmployerLocation.Value == "") { EmployerLocation.Value = filler; }
+            if (JobType.Value == "") { JobType.Value = filler; }
+            if (JobCoreCompetency.Value == "") { JobCoreCompetency.Value = filler; }
+
+            return $"\nID: {Id} \nName: {Name} \nEmployer: {EmployerName.Value} \nLocation: {EmployerLocation.Value} \nPosition Type: {JobType.Value} \nCore Competency: {JobCoreCompetency.Value} \n";
+        }
+        
 
 
 
