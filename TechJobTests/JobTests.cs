@@ -49,6 +49,8 @@ namespace TechJobTests
             Job testJob2 = new Job("Value", new Employer("test"), new Location("test"), new PositionType("test"), new CoreCompetency("test"));
             Assert.AreNotEqual(testJob1, testJob2);
         }
+        //TestJobsForEquality is not checking that the two classes are not equal 
+        // but rather than the custom equality method you generated in your class works.
 
         [TestMethod]
         public void TestJobsToString()
@@ -65,11 +67,15 @@ namespace TechJobTests
 
 
             Job jobToStringTest2 = new Job("", new Employer(""), desert, qa, persistence);
-            Assert.IsTrue(jobToStringTest2.ToString().Contains($"Name: Data not available"));
+            Assert.IsTrue(jobToStringTest2.ToString().Contains($"Name: Data not avaliable"));
             Assert.IsTrue(jobToStringTest2.ToString().Contains($"Employer: Data not available"));
+            
 
             Job jobToStringTest3 = new Job();
             Assert.AreEqual(jobToStringTest3.ToString(), "OOPS! This job does not seem to exist.");
+
+        
+
 
         }
 

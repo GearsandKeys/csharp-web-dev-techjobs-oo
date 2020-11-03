@@ -45,28 +45,22 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            if (Name == null)
+            try
+            {
+                if (String.IsNullOrEmpty(Name))
+                {
+                    Name = "Data not avaliable";
+                }
+
+                return $"\nID: {Id} \nName: {Name} \nEmployer: {EmployerName.ToString()} " +
+                    $"\nLocation: {EmployerLocation.ToString()} \nPosition Type: {JobType.ToString()} " +
+                    $"\nCore Competency: {JobCoreCompetency.ToString()} \n";
+            }
+            catch(NullReferenceException)
             {
                 return "OOPS! This job does not seem to exist.";
             }
-            
-            string filler = "Data not available";
-            
-            if (Name == "") { Name = filler;  }
-            if (EmployerName.Value == "") { EmployerName.Value = filler; }
-            if (EmployerLocation.Value == "") { EmployerLocation.Value = filler; }
-            if (JobType.Value == "") { JobType.Value = filler; }
-            if (JobCoreCompetency.Value == "") { JobCoreCompetency.Value = filler; }
-
-            return $"\nID: {Id} \nName: {Name} \nEmployer: {EmployerName.Value} \nLocation: {EmployerLocation.Value} \nPosition Type: {JobType.Value} \nCore Competency: {JobCoreCompetency.Value} \n";
         }
-        
-
-
-
-
-
-        // TODO: Generate Equals() and GetHashCode() methods.
-
     }
+
 }

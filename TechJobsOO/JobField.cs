@@ -21,11 +21,7 @@ namespace TechJobsOO
             Value = value;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is CoreCompetency competency &&
-                   Id == competency.Id;
-        }
+        
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
@@ -33,9 +29,17 @@ namespace TechJobsOO
 
         public override string ToString()
         {
+            if (String.IsNullOrEmpty(Value))
+            {
+                Value = "Data not available";
+            }
             return Value;
         }
 
-
+        public override bool Equals(object obj)
+        {
+            return obj is JobField field &&
+                   Id == field.Id;
+        }
     }
 }
