@@ -16,7 +16,7 @@ namespace TechJobsOO
 
         // TODO: Add the two necessary constructors.
 
-        public Job()
+        public Job() //makes the Id number and sets up for the next
         {
             Id = nextId;
             nextId++;
